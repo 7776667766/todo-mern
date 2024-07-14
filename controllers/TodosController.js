@@ -112,7 +112,6 @@ const deleteTodoApi = async (req, res, next) => {
       });
     }
 
-    // Ensure todoId is a string
     const todoIdString = String(todoId);
 
     const todo = await Todo.findById(todoIdString);
@@ -123,10 +122,12 @@ const deleteTodoApi = async (req, res, next) => {
       });
     }
 
-    await Todo.findByIdAndUpdate(todoIdString, { deletedAt: new Date() });
+  const checktodo = await Todo.findByIdAndUpdate(todoIdString, { deletedAt: new Date() });
+  console.log("checktodo126",checktodo)
 
     res.status(200).json({
       status: "success",
+      data: checktodo,
       message: "Todo Deleted Successfully",
     });
   } catch (error) {
