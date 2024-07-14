@@ -8,7 +8,6 @@ const bodyParser = require("body-parser");
 const routes = require("./routes/index");
 const path = require("path");
 
-
 const dbConnect = require("./db/dbconnect");
 dbConnect();
 
