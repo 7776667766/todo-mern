@@ -8,6 +8,7 @@ const bodyParser = require("body-parser");
 const routes = require("./routes/index");
 const path = require("path");
 
+
 const dbConnect = require("./db/dbconnect");
 dbConnect();
 
@@ -23,13 +24,6 @@ app.listen(PORT, () => {
 });
 
 // Enable CORS for specific origins
-const corsOptions = {
-  origin: ["http://localhost:3001"],
-  credentials: true, // Required if you're using cookies, authorization headers, etc.
-  optionSuccessStatus: 200, // Some legacy browsers (IE11, various SmartTVs) choke on 204
-};
-
-app.use(cors(corsOptions));
 
 app.use(cookieParser());
 app.use(express.json());
